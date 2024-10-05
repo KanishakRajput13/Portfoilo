@@ -131,6 +131,18 @@ nav {
     transform: scale(1.2); 
 }
 
+.secondary-info-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .about-container {
     display: flex;
     justify-content: center;
