@@ -42,7 +42,7 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: inline-flex;
     gap: 20px;
 }
 
@@ -77,6 +77,7 @@ nav {
     width: 100%;
     text-align: center;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .primary-info {
@@ -168,6 +169,7 @@ nav {
     width: 100%;
     text-align: center;
     display: flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
@@ -249,10 +251,12 @@ nav {
     width: 100%;
     overflow-x: hidden;
     text-align: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .skills-title {
@@ -304,7 +308,6 @@ nav {
 .contact-form-container {
     padding: 20px;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     text-align: center;
     margin-top: 20px;
@@ -314,7 +317,11 @@ nav {
 
 .contact-form-container h2 {
     margin-bottom: 20px;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: normal;
     color: #1e90ff;
+    font-size: 40px;
 }
 
 .contact-form-container form {
@@ -327,6 +334,8 @@ nav {
 
 .contact-form-container label {
     margin-bottom: 5px;
+    align-self: flex-start;
+    font-size: 20px;
 }
 
 .contact-form-container input,
@@ -357,7 +366,6 @@ nav {
 .contact-form-container button:hover {
     background-color: #ffffff;
     color: #000000;
-    transform: scale3d(1.2, 1.2, 1.2);
 }
 
 
