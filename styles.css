@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +11,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #f0f0f0;
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -23,16 +25,12 @@ a:hover {
 }
 
 
-
-
-
-
-
 nav {
     width: 100%;
     background-color: #1c1c1c;
     display: flex;
     justify-content: center;
+    align-self: center;
     padding: 10px 0;
     position: fixed;
     top: 0;
@@ -78,6 +76,7 @@ nav {
     margin-top: 60px; 
     width: 100%;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .primary-info {
@@ -85,54 +84,83 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 40vh;
 }
 
 .primary-text-name {
-    font-size: 2em;
+
+    font-size: 6em;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: normal;
     margin: 0;
     color: #1e90ff;
+    letter-spacing: 3px;
+    border-right: 5px solid;
+    width:100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:typing 10s  infinite,
+    cursor 0.4s step-end infinite alternate;
 }
 
-.typing.primary-text-desc {
-    font-size: 1.2em;
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+@keyframes typing  {
+    from{
+        width: 0;
+    }
+}
+
+.primary-text-desc {
+    font-size: 3em;
     margin: 10px 0;
+    opacity: 1;
+    height: 6vh;
+    margin-bottom: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    transform: translateX(0);
+    position: relative;
+    animation: fade-in-out 5s ease-in-out infinite;
 }
 
-.buttons .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1e90ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+.primary-text-desc::after {
+    content: "Problem Solver";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    animation: text-change 5s infinite;
 }
 
-.buttons .btn:hover {
-    background-color: #1c86ee;
+@keyframes fade-in-out {
+    0%, 100%  {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    25%, 75% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.social-icon {
-    margin: 0 10px;
-}
-
-.social-icon a {
-    color: #1e90ff;
-    font-size: 2em;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icon a:hover {
-    color: #ff6347; 
-    transform: scale(1.2); 
+@keyframes text-change {
+    0%, 50% {
+        content: "Problem Solver";
+    }
+    50.01%, 100% {
+        content: "Budding Programmer";
+    }
 }
 
 .secondary-info-container {
@@ -142,7 +170,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    overflow-x: hidden;
+
 
 }
 #about{
@@ -153,7 +182,7 @@ nav {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: normal;
-    font-size: 80px;
+    font-size: 100px;
 
 }
 .about-container {
@@ -176,7 +205,7 @@ nav {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .about-text h2 {
@@ -218,12 +247,12 @@ nav {
 .skills-container {
     padding: 20px;
     width: 100%;
+    overflow-x: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .skills-title {
@@ -244,33 +273,43 @@ nav {
     align-items: center;
     margin: 10px;
     background-color: #3c3c3c;
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    background-color: #1e90ff;
 }
 
 .skill img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
 }
 
 .skill p {
     margin: 0;
     color: #f0f0f0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
 }
-
-
-
-
 
 
 .contact-form-container {
     padding: 20px;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 60px;
+    overflow-x: hidden;
 }
 
 .contact-form-container h2 {
@@ -302,14 +341,80 @@ nav {
 }
 
 .contact-form-container button {
+    display: inline-block;
+    font-size: 20px;
     padding: 10px 20px;
     background-color: #1e90ff;
     color: white;
-    border: none;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+    transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, color 0.3s ease-in-out;
 }
 
+
 .contact-form-container button:hover {
-    background-color: #1c86ee;
+    background-color: #ffffff;
+    color: #000000;
+    transform: scale3d(1.2, 1.2, 1.2);
+}
+
+
+footer {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    padding: 10px 0;
+}
+
+footer .buttons {
+    margin: 10px 0;
+}
+
+footer .buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+footer .buttons .btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: scale(1.2);
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+footer .social-icon {
+    margin: 0 10px;
+}
+
+footer .social-icon a {
+    color: #1e90ff;
+    font-size: 2em;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+footer .social-icon a:hover {
+    color: #ffffff;
+    transform: scale(3); 
 }
